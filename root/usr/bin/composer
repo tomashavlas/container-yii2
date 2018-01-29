@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -o errexit
+
+if [ -n "${COMPOSER_GITHUB_API_TOKEN:-}" ]; then
+    composer.phar config -g github-oauth.github.com "${COMPOSER_GITHUB_API_TOKEN}"
+fi
+
+composer.phar "$@"

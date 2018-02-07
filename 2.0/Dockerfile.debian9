@@ -30,6 +30,9 @@ RUN apt-get update \
         libmagickwand-dev \
         libpng-dev \
         libpq-dev " \
+ && HTTPD_MODULES=" \
+        rewrite " \
+ \
  && PECL_EXTENSIONS=" \
         imagick " \
  && PHP_EXTENSIONS=" \
@@ -42,6 +45,7 @@ RUN apt-get update \
         soap \
         zip " \
  && apt-get install --yes --no-install-recommends --verbose-versions ${BUILD_DEPS} \
+ && docker-httpd-module enable ${HTTPD_MODULES} \
  && docker-php-source extract \
  \
  && docker-php-ext-install ${PHP_EXTENSIONS} \

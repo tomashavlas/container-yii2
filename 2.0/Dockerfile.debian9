@@ -3,7 +3,7 @@ FROM tomashavlas/php-httpd:7.2-debian9
 USER 0
 
 ENV YII2_VERSION=2.0 \
-    YII2_RELEASE=2.0.13
+    YII2_RELEASE=2.0.15.1
 
 LABEL name="tomashavlas/yii2" \
       version="${YII2_VERSION}" \
